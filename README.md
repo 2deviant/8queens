@@ -4,7 +4,7 @@ This code is a semi-intelligent, brute-force solution to the
 [Eight Queens Puzzle](http://en.wikipedia.org/wiki/Eight_queens_puzzle).
 
 ## Demo
-See it in [action here]().
+See it in [action here](http://2deviant.github.io/8queens/).
 
 ## Structure
 The engine is encapsulated in a class `nQueens`, located in `8queens.js`, which
