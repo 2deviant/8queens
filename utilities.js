@@ -20,9 +20,8 @@ function get_int(id) {
 }
 
 function show(IDs) {
-    console.log(IDs);
     for(var i = IDs.length; i-->0;)
-        $(IDs[i]).className = $(IDs[i]).className.replace(/hidden/g, '');
+        $(IDs[i]).className = $(IDs[i]).className.replace(/\s?hidden\s?/g, '');
 }
 
 function hide(IDs) {
