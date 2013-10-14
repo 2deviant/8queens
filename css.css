@@ -1,0 +1,79 @@
+body, select {
+    font:18pt "Comic Sans MS";
+    margin:1em;
+}
+
+tr td {
+    width:64px;
+    height:64px;
+    border:1px solid #000;
+}
+
+#board_container {
+    float:right;
+}
+
+#controls_container {
+    float:left;
+    width:480px;
+}
+
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+.smaller tr td {
+    width:48px;
+    height:48px;
+}
+
+.smaller .queen {
+    background-image:url(smaller_queen.png);
+}
+
+#board_container {
+    margin-bottom:1em;
+}
+
+.dark {
+    background-color:#bbb;
+}
+
+.light {
+    background-color:#eee;
+}
+
+.queen {
+    background-image:url(queen.png);
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+
+.hidden {
+    display:none;
+}
+
+#progress {
+    color:#0a0;
+    font-weight:bold;
+    font-size:150%;
+}
+
+.tooltip {
+    cursor:pointer;
+}
+
+select {
+    margin-right:1em;
+}
+
+a {
+    text-decoration:none;
+    color:#f00;
+}
+
+button {
+    padding:1em;
+    width:10em;
+}
