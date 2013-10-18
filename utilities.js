@@ -147,21 +147,45 @@ nQueens.prototype.progress = function() {
         show_solution(this.X);
 }
 
-// override the default (empty) new solution funciton
-nQueens.prototype.new_solution = function() {
+// self-explanatory
+function add_solution(solution) {
 
-    // store the new solution, the array has to be cloned else it is stored by
-    // reference
-    solutions.push(this.X.slice(0));
+    solutions.push(solution);
 
     // add it to the solution list
     var option = _('option');
     option.value = solutions.length - 1;
-    option.innerHTML = this.X.join('.');
+    option.innerHTML = solution.join('.');
     $('solutions').appendChild(option);
 
     // update the number of solutions
     $('number_of_solutions').innerHTML = solutions.length;
+}
+
+// override the default (empty) new solution funciton
+nQueens.prototype.new_solution = function() {
+
+    // the array has to be cloned else it is stored by reference
+    var solution1 = this.X.slice(0);
+
+    // store the first solution
+    add_solution(solution1);
+
+    // if this is a solution to an odd-sided board with the first queen 
+    // in the middle row, do not reflect
+    if(solution1[0] == (this.n - 1) / 2)
+        return;
+
+    // second solution is the reflection of the first about x = n/2 + 1 
+    var solution2 = this.X.slice(0);
+
+    // find the reflection
+    for(var i = this.n; i-->0;)
+        solution2[i] = this.n - 1 - solution1[i];
+
+    // store the second solution
+    add_solution(solution2);
+
 }
 
 function initialize_queen_calculator() {

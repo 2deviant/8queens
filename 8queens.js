@@ -47,26 +47,34 @@ nQueens.prototype.run = function() {
             // in either case, remove the last queen and keep searching
             if(x == n || solution_found) {
 
-                // if all of the queens have been removed, there are no more
-                // solutions
-                if(!X.length) {
-                    no_more_solutions = true;
-                    break;
-                }
-
                 // reset the solution flag
                 solution_found = false;
 
                 // retrieve the coordinates of the previous queen
-                x = X.pop();
                 // y coordinate = # of the queen
-                y--;
+                x = X[--y];
 
                 // the diagonals and the column are no longer under attack
                 Y[x] = Z[x+y] = W[x-y] = false;
 
                 // look for another x coordinate for this queen
                 x++;
+
+                // find roughly half of the solutions, the other half are
+                // reflections about the middle of the board
+                if(!y && (x + x + 2 > n + n%2)) {
+                    no_more_solutions = true;
+                    break;
+                }
+                // a simplified form of
+                //  if(!y)
+                //      if(
+                //              // n even
+                //              ((x + 1 > n/2) && (n%2 == 0))
+                //              // n odd
+                //          ||  ((x > (n-1)/2) && (n%2 == 1))
+                //      )
+
                 continue;
             }
 
@@ -76,18 +84,16 @@ nQueens.prototype.run = function() {
             Y[x] = Z[x+y] = W[x-y] = true;
 
             // store the x coordinate of the queen
-            X.push(x);
+            X[y++] = x;
 
             // if all of the queens are on the board, it is a solution
-            // also X.length == n
-            if(y == n - 1) {
+            if(y == n) {
                 solution_found = true;
                 new_solution();
             }
 
             // proceed to the next row
-            y++;
-            x=0;
+            x = 0;
         }
 
         // progress, or whatever
