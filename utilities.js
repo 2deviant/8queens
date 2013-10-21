@@ -144,7 +144,7 @@ nQueens.prototype.progress = function() {
     }
     else
         // show whatever is currently on the board
-        show_solution(this.X);
+        show_solution(this.X.slice(0, this.y));
 }
 
 // self-explanatory
