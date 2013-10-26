@@ -171,13 +171,10 @@ nQueens.prototype.new_solution = function() {
     // store the first solution
     add_solution(solution1);
 
-    // if this is a solution to an odd-sided board with the first queen 
-    // in the middle row, do not reflect
-    if(solution1[0] == (this.n - 1) / 2)
-        return;
+    // second solution is the horizontal reflection of the first about the
+    // middle of the board
 
-    // second solution is the reflection of the first about x = n/2 + 1 
-    var solution2 = this.X.slice(0);
+    var solution2 = [];
 
     // find the reflection
     for(var i = this.n; i-->0;)

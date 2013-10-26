@@ -60,20 +60,19 @@ nQueens.prototype.run = function() {
                 // look for another x coordinate for this queen
                 x++;
 
-                // find roughly half of the solutions, the other half are
-                // reflections about the middle of the board
-                if(!y && (x + x + 2 > n + n%2)) {
-                    no_more_solutions = true;
-                    break;
+                /* half way point, no need to count obvious reflections */
+                
+                // for n even
+                if(y == 0 && !(n & 1) && x + 1 > n/2) {
+                        no_more_solutions = true;
+                        break;
                 }
-                // a simplified form of
-                //  if(!y)
-                //      if(
-                //              // n even
-                //              ((x + 1 > n/2) && (n%2 == 0))
-                //              // n odd
-                //          ||  ((x > (n-1)/2) && (n%2 == 1))
-                //      )
+
+                // for n odd
+                if(y == 1 &&  (n & 1) && x + 2 > (n-1)/2 && X[0] == (n-1)/2) {
+                        no_more_solutions = true;
+                        break;
+                }
 
                 continue;
             }
