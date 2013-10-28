@@ -39,6 +39,7 @@ function reinitialize_board() {
     // erase old solutions
     solutions = [];
     $('solutions').innerHTML = 
+    $('number_of_positions').innerHTML =
     $('number_of_solutions').innerHTML = '';
 
     // self-explanatory
@@ -116,8 +117,8 @@ function show_solution(solution) {
 
     // really dirty way to erase previous arrangement
     $('board_container').innerHTML
-     
         = $('board_container').innerHTML.replace(/\s?queen\s?/g, '');
+
     // display the queens where they belong
     for(var i = solution.length; i-->0;)
         // by adding a 'queen' class to appropriate cells, which puts
@@ -145,6 +146,9 @@ nQueens.prototype.progress = function() {
     else
         // show whatever is currently on the board
         show_solution(this.X.slice(0, this.y));
+
+    // display the number of positions examined
+    $('number_of_positions').innerHTML = this.loops;
 }
 
 // self-explanatory
