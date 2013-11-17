@@ -57,6 +57,7 @@ function render_chess_board(id) {
 
     // create the chess board
     var table = _('table');
+    table.id = 'board';
 
     // if the chess board is taller than eight rows, use a smaller version
     if(n > 8)
@@ -112,7 +113,7 @@ function show_solution_list() {
 
 }
 
-
+// shows the given solution on the board
 function show_solution(solution) {
 
     // really dirty way to erase previous arrangement
@@ -205,7 +206,7 @@ function stop_calculation() {
 
     // turn off everything but the start button
     show(['start']);
-    hide(['progress', 'stop']);
+    hide(['stop']);
 
 }
 
@@ -213,7 +214,7 @@ function stop_calculation() {
 function start_calculation() {
 
     // show the stop button and Calculating... sign
-    show(['stop', 'progress']);
+    show(['stop']);
 
     // hide start and reset buttons
     hide(['start', 'reset']);
@@ -228,3 +229,23 @@ function start_calculation() {
     Q.run();
 }
 
+// next solution
+function next() {
+    var select = $('solutions');
+    var current = parseInt(select.value);
+    var maximum = parseInt($('number_of_solutions').innerHTML);
+    if(current + 1 != maximum) {
+        select.value = parseInt(select.value)+1;
+        select.onchange();
+    }
+}
+
+// previous solution
+function previous() {
+    var select = $('solutions');
+    var current = parseInt(select.value);
+    if(current > 0) {
+        select.value = parseInt(select.value) - 1;
+        select.onchange();
+    }
+}
