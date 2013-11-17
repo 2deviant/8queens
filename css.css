@@ -1,38 +1,28 @@
 body, select {
-    font:18pt "Comic Sans MS";
-    margin:1em;
+    font:12pt helvetica;
+    margin:0;
 }
 
-tr td {
+#header {
+    font:bold 300% Garamond;
+    font-variant:small-caps;
+    text-align:center;
+    background:#080;
+    color:#fff;
+    padding:.25em;
+}
+
+/* Board Style */
+
+#board {
+    margin-bottom:1em;
+    border:3px solid #555;
+    box-shadow: 10px 10px 25px #888;
+}
+
+#board tr td {
     width:64px;
     height:64px;
-    border:1px solid #000;
-}
-
-#board_container {
-    float:right;
-}
-
-#controls_container {
-    width:480px;
-}
-
-table {
-    border-spacing:0;
-    border-collapse:collapse;
-}
-
-.smaller tr td {
-    width:48px;
-    height:48px;
-}
-
-.smaller .queen {
-    background-image:url(smaller_queen.png);
-}
-
-#board_container {
-    margin-bottom:1em;
 }
 
 .dark {
@@ -42,6 +32,56 @@ table {
 .light {
     background-color:#eee;
 }
+
+#board_block {
+    position:absolute;
+    top:128px;
+    right:64px;
+}
+
+#board_container {
+}
+
+#solutions_container button {
+    font:bold 12pt arial;
+    padding:.25em;
+    width:5em;
+}
+
+#controls_container {
+    position:absolute;
+    top:128px;
+    left:64px;
+    padding:1em;
+    box-shadow: 10px 10px 25px #888;
+}
+
+#controls_container table {
+    margin-bottom:1em;
+}
+
+#controls_container table tr td {
+    padding:.5em;
+}
+
+#controls_container table tr td:last-child {
+    border-left:2px dashed #888;
+}
+
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+#board.smaller tr td {
+    width:32;
+    height:32;
+}
+
+table.smaller .queen {
+    background-image:url(smaller_queen.png);
+}
+
 
 .queen {
     background-image:url(queen.png);
@@ -63,10 +103,6 @@ table {
     cursor:pointer;
 }
 
-select {
-    margin-right:1em;
-}
-
 a {
     text-decoration:none;
     color:#f00;
@@ -74,5 +110,5 @@ a {
 
 button {
     padding:1em;
-    width:10em;
+    width:100%;
 }

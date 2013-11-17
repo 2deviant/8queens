@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
     <head>
         <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
@@ -8,56 +7,72 @@
         <link href='css.css' rel='stylesheet'/>
     </head>
     <body>
-        <div>
+        <div id='header'>
+            Eight Queens
+        </div>
+        <div id='board_block'>
             <div id='board_container'>
             </div>
-            <div id='controls_container'>
-                <div>
-                    Positions examined: <span id='number_of_positions'></span>
-                </div>
-                <div>
-                    <div>Solutions: <span id='number_of_solutions'></span></div>
+            <div id='solutions_container'>
+                <center>
+                    <button onclick='previous()'>&larr;</button>
                     <select id='solutions' onchange='show_solution(solutions[this.value])'>
                     </select>
-                </div>
-                <div>
-                    <div>Board Size</div>
-                    <select id='n' onchange='reinitialize_board()'>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                        <option>13</option>
-                        <option>14</option>
-                        <option>15</option>
-                    </select>
-                </div>
-                <div>
-                    <div>Compute Cycle<a href='#' title='Higher count = faster result.  Lower count = more granulated progress.' ><sup>1</sup></a></div>
-                    <select id='cycle'>
-                        <option value='1000'>1,000</option>
-                        <option value='2000'>2,000</option>
-                        <option value='4000'>4,000</option>
-                        <option value='8000'>8,000</option>
-                        <option value='16000'>16,000</option>
-                        <option value='32000'>32,000</option>
-                        <option value='64000'>64,000</option>
-                        <option value='128000'>128,000</option>
-                    </select>
-                </div>
-                <div>
-                    <button id='start' onclick= 'start_calculation()'>Start</button>
-                    <button id='stop'  onclick=  'stop_calculation()'>Stop</button>
-                    <button id='reset' onclick='reinitialize_board()'>Reset</button>
-                </div>
-                <div id='progress' class='hidden'>
-                    Calculating...
-                </div>
+                    <button onclick='next()'>&rarr;</button>
+                </center>
+            </div>
+        </div>
+        <div id='controls_container'>
+            <table>
+                <tr>
+                    <td>Positions examined </td>
+                    <td id='number_of_positions'></td>
+                </tr>
+                <tr>
+                    <td>Solutions found</td>
+                    <td id='number_of_solutions'></td>
+                </tr>
+                <tr>
+                    <td>Board Size</td>
+                    <td>
+                        <select id='n' onchange='reinitialize_board()'>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Compute Cycle<a href='#' title='Higher count = faster result.  Lower count = more granulated progress.' ><sup>1</sup></a>
+                    </td>
+                    <td>
+                        <select id='cycle'>
+                            <option value='1000'>1,000</option>
+                            <option value='2000'>2,000</option>
+                            <option value='4000'>4,000</option>
+                            <option value='8000'>8,000</option>
+                            <option value='16000'>16,000</option>
+                            <option value='32000'>32,000</option>
+                            <option value='64000'>64,000</option>
+                            <option value='128000'>128,000</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <button id='start' onclick= 'start_calculation()'>Start</button>
+                <button id='stop'  onclick=  'stop_calculation()'>Stop</button>
+                <button id='reset' onclick='reinitialize_board()'>Reset</button>
             </div>
         </div>
         <script type='text/javascript'>
