@@ -9,9 +9,12 @@ a late model Safari, Firefox, or Chrome.
 
 ## Structure
 The engine is encapsulated in a class `nQueens`, located in `8queens.js`, which
-is the most important part of the code, the rest is the implementation.
+is the most important part of the code, the rest is the implementation and is
+not worth describing.
 
 ## Use
+
+### JavaScript Class
 
 ```javascript
 
@@ -46,5 +49,20 @@ nQueens.prototype.progress = function() {
 // start the calculation
 queens.run();
 ```
+
+### The C Code
+The C code does not compute the solutions, it merely counts them.  The code is
+virtually identical to the one found in `8queens.js` owing in part to the
+similarities of JavaScript and C syntax.  To compile:
+```bash
+make
+```
+To run:
+```bash
+./8queens 10
+```
+Unless you have access to the main computer of the USS Enterprise (the starship),
+an argument ~ 20 is likely to keep your computer chugging for a month or so.
+Running time grows exponentially ~ 6⅔<sup>n</sup>
 ## Algorithm
 ... forthcoming
