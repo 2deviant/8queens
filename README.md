@@ -5,7 +5,7 @@ This code is a semi-intelligent, brute-force solution to the
 
 ## Demo
 See it in [action here](http://2deviant.github.io/8queens/).  Please use
-a late model Safari, Firefox, or Chrome.
+a late model Chrome, Firefox, Opera, or Safari.
 
 ## Structure
 The engine is encapsulated in a class `nQueens`, located in `8queens.js`, which
